@@ -1,8 +1,8 @@
 # #####################################################################
 #
-# getChar: 
+# getChar:
 #
-# This function returns a string that represents an 8 * 8 
+# This function returns a string that represents an 8 * 8
 # representation of the character passed in.
 #
 # USAGE:
@@ -48,7 +48,7 @@ def getChar(pIn):
                "     xx " + \
                " xx  xx " + \
                "  xxxx  " + \
-               "        ") 
+               "        ")
     elif pIn=="4":
         return("    xx  " + \
                "   xxx  " + \
@@ -57,7 +57,7 @@ def getChar(pIn):
                " xxxxxx " + \
                "    xx  " + \
                "    xx  " + \
-               "        ") 
+               "        ")
     elif pIn=="5":
         return(" xxxxxx " + \
                " xx     " + \
@@ -66,7 +66,7 @@ def getChar(pIn):
                "     xx " + \
                " xx  xx " + \
                "  xxxx  " + \
-               "        ")    
+               "        ")
     elif pIn=="6":
         return("   xxx  " + \
                "  xx    " + \
@@ -75,7 +75,7 @@ def getChar(pIn):
                " xx  xx " + \
                " xx  xx " + \
                "  xxxx  " + \
-               "        ") 
+               "        ")
     elif pIn=="7":
         return(" xxxxxx " + \
                "     xx " + \
@@ -84,7 +84,7 @@ def getChar(pIn):
                "  xx    " + \
                "  xx    " + \
                "  xx    " + \
-               "        ") 
+               "        ")
     elif pIn=="8":
         return("  xxxx  " + \
                " xx  xx " + \
@@ -93,7 +93,7 @@ def getChar(pIn):
                " xx  xx " + \
                " xx  xx " + \
                "  xxxx  " + \
-               "        ") 
+               "        ")
     elif pIn=="9":
         return("  xxxx  " + \
                " xx  xx " + \
@@ -102,7 +102,7 @@ def getChar(pIn):
                "     xx " + \
                "    xx  " + \
                "  xxx   " + \
-               "        ") 
+               "        ")
     elif pIn=="0":
         return("  xxxx  " + \
                " xx  xx " + \
@@ -111,7 +111,7 @@ def getChar(pIn):
                " xxx xx " + \
                " xx  xx " + \
                "  xxxx  " + \
-               "        ") 
+               "        ")
     elif pIn=="A":
         return("  xxxx  " + \
                " xx  xx " + \
@@ -120,7 +120,7 @@ def getChar(pIn):
                " xx  xx " + \
                " xx  xx " + \
                " xx  xx " + \
-               "        ") 
+               "        ")
     elif pIn=="B":
         return(" xxxxx  " + \
                " xx  xx " + \
@@ -129,7 +129,7 @@ def getChar(pIn):
                " xx  xx " + \
                " xx  xx " + \
                " xxxxx  " + \
-               "        ") 
+               "        ")
     elif pIn=="C":
         return("  xxxx  " + \
                " xx  xx " + \
@@ -138,7 +138,7 @@ def getChar(pIn):
                " xx     " + \
                " xx  xx " + \
                "  xxxx  " + \
-               "        ")            
+               "        ")
     elif pIn=="D":
         return(" xxxxx  " + \
                " xx  xx " + \
@@ -147,7 +147,7 @@ def getChar(pIn):
                " xx  xx " + \
                " xx  xx " + \
                " xxxxx  " + \
-               "        ") 
+               "        ")
     elif pIn=="E":
         return(" xxxxxx " + \
                " xx     " + \
@@ -156,7 +156,7 @@ def getChar(pIn):
                " xx     " + \
                " xx     " + \
                " xxxxxx " + \
-               "        ") 
+               "        ")
     elif pIn=="F":
         return(" xxxxxx " + \
                " xx     " + \
@@ -165,7 +165,7 @@ def getChar(pIn):
                " xx     " + \
                " xx     " + \
                " xx     " + \
-               "        ") 
+               "        ")
     elif pIn=="G":
         return("  xxxx  " + \
                " xx  xx " + \
@@ -174,7 +174,7 @@ def getChar(pIn):
                " xx  xx " + \
                " xx  xx " + \
                "  xxxx  " + \
-               "        ") 
+               "        ")
     elif pIn=="H":
         return(" xx  xx " + \
                " xx  xx " + \
@@ -183,7 +183,7 @@ def getChar(pIn):
                " xx  xx " + \
                " xx  xx " + \
                " xx  xx " + \
-               "        ") 
+               "        ")
     elif pIn=="I":
         return(" xxxxxx " + \
                "   xx   " + \
@@ -192,7 +192,7 @@ def getChar(pIn):
                "   xx   " + \
                "   xx   " + \
                " xxxxxx " + \
-               "        ")                
+               "        ")
     elif pIn=="J":
         return("  xxxxx " + \
                "    xx  " + \
@@ -201,7 +201,7 @@ def getChar(pIn):
                "    xx  " + \
                " xx xx  " + \
                "  xxx   " + \
-               "        ")                
+               "        ")
     elif pIn=="K":
         return(" xx  xx " + \
                " xx xx  " + \
@@ -210,7 +210,7 @@ def getChar(pIn):
                " xxxx   " + \
                " xx xx  " + \
                " xx  xx " + \
-               "        ")                
+               "        ")
     elif pIn=="L":
         return(" xx     " + \
                " xx     " + \
@@ -219,7 +219,7 @@ def getChar(pIn):
                " xx     " + \
                " xx     " + \
                " xxxxxx " + \
-               "        ")                
+               "        ")
     elif pIn=="M":
         return(" xx   xx" + \
                " xxx xxx" + \
@@ -228,7 +228,7 @@ def getChar(pIn):
                " xx x xx" + \
                " xx   xx" + \
                " xx   xx" + \
-               "        ")                
+               "        ")
     elif pIn=="N":
         return(" xx  xx " + \
                " xx  xx " + \
@@ -354,7 +354,7 @@ def getChar(pIn):
                "  xxxxx " + \
                " xx  xx " + \
                "  xxxxx " + \
-               "        ") 
+               "        ")
     elif pIn=="b":
         return(" xx     " + \
                " xx     " + \
@@ -363,7 +363,7 @@ def getChar(pIn):
                " xx  xx " + \
                " xx  xx " + \
                " xxxxx  " + \
-               "        ") 
+               "        ")
     elif pIn=="c":
         return("        " + \
                "        " + \
@@ -372,7 +372,7 @@ def getChar(pIn):
                " xx     " + \
                " xx  xx " + \
                "  xxxx  " + \
-               "        ")            
+               "        ")
     elif pIn=="d":
         return("     xx " + \
                "     xx " + \
@@ -381,7 +381,7 @@ def getChar(pIn):
                " xx  xx " + \
                " xx  xx " + \
                "  xxxxx " + \
-               "        ") 
+               "        ")
     elif pIn=="e":
         return("        " + \
                "        " + \
@@ -390,7 +390,7 @@ def getChar(pIn):
                " xxxxxx " + \
                " xx     " + \
                "  xxxx  " + \
-               "        ") 
+               "        ")
     elif pIn=="f":
         return("   xxx  " + \
                "  xx    " + \
@@ -399,7 +399,7 @@ def getChar(pIn):
                "  xx    " + \
                "  xx    " + \
                "  xx    " + \
-               "        ") 
+               "        ")
     elif pIn=="g":
         return("        " + \
                "        " + \
@@ -408,7 +408,7 @@ def getChar(pIn):
                " xx  xx " + \
                "  xxxxx " + \
                "     xx " + \
-               "  xxxx  ") 
+               "  xxxx  ")
     elif pIn=="h":
         return(" xx     " + \
                " xx     " + \
@@ -417,7 +417,7 @@ def getChar(pIn):
                " xx  xx " + \
                " xx  xx " + \
                " xx  xx " + \
-               "        ") 
+               "        ")
     elif pIn=="i":
         return("   xx   " + \
                "        " + \
@@ -426,7 +426,7 @@ def getChar(pIn):
                "   xx   " + \
                "   xx   " + \
                "  xxxx  " + \
-               "        ")                
+               "        ")
     elif pIn=="j":
         return("    xx  " + \
                "        " + \
@@ -435,7 +435,7 @@ def getChar(pIn):
                "    xx  " + \
                "    xx  " + \
                "    xx  " + \
-               "  xxx   ")                
+               "  xxx   ")
     elif pIn=="k":
         return(" xx     " + \
                " xx  xx " + \
@@ -444,7 +444,7 @@ def getChar(pIn):
                " xxxx   " + \
                " xx xx  " + \
                " xx  xx " + \
-               "        ")                
+               "        ")
     elif pIn=="l":
         return("  xxx   " + \
                "   xx   " + \
@@ -453,7 +453,7 @@ def getChar(pIn):
                "   xx   " + \
                "   xx   " + \
                "  xxxx  " + \
-               "        ")                
+               "        ")
     elif pIn=="m":
         return("        " + \
                "        " + \
@@ -462,7 +462,7 @@ def getChar(pIn):
                " xx x xx" + \
                " xx x xx" + \
                " xx   xx" + \
-               "        ")                
+               "        ")
     elif pIn=="n":
         return("        " + \
                "        " + \
@@ -588,7 +588,7 @@ def getChar(pIn):
                "        " + \
                "        " + \
                "        " + \
-               "        ")   
+               "        ")
     elif pIn=="!":
         return("   xx   " + \
                "   xx   " + \
@@ -633,7 +633,7 @@ def getChar(pIn):
                "   xx   " + \
                "  xx    " + \
                " xx     " + \
-               "        ")               
+               "        ")
     elif pIn=="?":
         return("  xxxx  " + \
                " xx  xx " + \
@@ -660,7 +660,7 @@ def getChar(pIn):
                "        " + \
                "        " + \
                "        " + \
-               "        ")    
+               "        ")
     else:
         return("        " + \
                " xxxxxx " + \
@@ -670,18 +670,18 @@ def getChar(pIn):
                " x    x " + \
                " xxxxxx " + \
                "        ")
-               
+
 # #####################################################################
 #
-# getSpecialChar: 
+# getSpecialChar:
 #
-# This function returns a string that represents an 8 * 8 
+# This function returns a string that represents an 8 * 8
 # representation of a special character (e.g. a smiley). To use it
 # pass in the string that corresponds to the character you want.
-# 
+#
 # SUPPORTED CHARACTERS:
 # (Check the code to be sure!)
-# 
+#
 #    smiley, sad, block
 #
 # USAGE:
@@ -715,7 +715,7 @@ def getSpecialChar(pIn):
                "x  xx  x" + \
                "x x  x x" + \
                " x    x " + \
-               "  xxxx  ")               
+               "  xxxx  ")
     elif pIn=="block":
         return("xxxxxxxx" + \
                "xxxxxxxx" + \
@@ -737,7 +737,7 @@ def getSpecialChar(pIn):
 
 # #####################################################################
 #
-# wrap: 
+# wrap:
 #
 # Pass in a string and a line length and this function will return a
 # list of lines that make up the original message but split so that
@@ -754,8 +754,9 @@ def getSpecialChar(pIn):
 # 23/07/2015 Dave Hol'        Initial Version, doesn't handle where a
 #                             single word in the list is longer than
 #                             the required length.
-#
-#
+# 04/01/2018 Dave Hol'        Fixed the bug where a single line causes
+#                             a crash! Bug reported above, still not
+#                             fixed!
 # #####################################################################
 def wrap(pMessage, pLineWidth):
 
@@ -767,7 +768,7 @@ def wrap(pMessage, pLineWidth):
 
     # Clear a line
     wLine = ""
-    
+
     # Start looping through the words
     for i in wWordList:
 
@@ -776,7 +777,7 @@ def wrap(pMessage, pLineWidth):
         if wLine=="":
             wLine = i
         else:
-            
+
             # Check to see if the current line plus a space and the next
             # word is greater than the allowed line width ...
             if len(wLine + " " + i) > pLineWidth:
@@ -786,12 +787,12 @@ def wrap(pMessage, pLineWidth):
                 wLine=i
             else:
                 # ... it isn't greater so just append and continue.
-                wLine=wLine + " " + i    
+                wLine=wLine + " " + i
 
     # If the current line hasn't been written to the list then
     # append it. Do this by checking that that last element matches the
-    # current wLine.
-    if wLines[-1] != wLine:
+    # current wLine. Check for an empty list first.
+    if (not wLines) or (wLines[-1] != wLine):
         wLines.append(wLine)
 
     # Return the result
@@ -799,7 +800,7 @@ def wrap(pMessage, pLineWidth):
 
 # #####################################################################
 #
-# banner: 
+# banner:
 #
 # Uses the wrap function to generate a banner style rendering of a
 # supplied message.
@@ -815,7 +816,7 @@ def wrap(pMessage, pLineWidth):
 # 23/07/2015 Dave Hol'        Initial Version, wouldn't it be great
 #                             if it worked in Minecraft!!
 #
-# #####################################################################               
+# #####################################################################
 def banner(pMessage, pWrap):
 
     # Convert the message into lines (wrap it!)
@@ -823,7 +824,7 @@ def banner(pMessage, pWrap):
 
     # Now loop through the lines
     for wMessage in wMessageLines:
-        
+
         # Declare an array to store the characters
         wWordList=[]
 
@@ -846,14 +847,12 @@ def banner(pMessage, pWrap):
 
             # Print it
             print(wPrintLine)
-           
-               
-               
-               
+
+
+
+
 # Start of code #######################################################
 
 
 # The message to print
 # banner("There once was a young man called Seamus, who's ekit sessions were famous!",8)
-
-
