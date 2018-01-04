@@ -34,6 +34,8 @@ def blockPrintChar(pX, pY, pZ, pChar, pBlockType, pBlockStyle):
     for i in range(len(blockToPrint)):
         if blockToPrint[i]=="x":
             mc.setBlock( x+(i%8), y+8-(i//8), z, pBlockType, pBlockStyle)
+        else:
+            mc.setBlock( x+(i%8), y+8-(i//8), z, 102)
 
 # ##############################################################################
 # This procedre uses the blockPrintChar procedure to print a message.
@@ -58,7 +60,7 @@ mc.postToChat("Started")
 pos = mc.player.getTilePos()
 
 # Think of a suitable message
-wMessage = "It's not like there's a grading tomorrow!.... Doh!!"
+wMessage = "trust me trust no one"
 debug(mc, wMessage)
 
 # Wrap the message

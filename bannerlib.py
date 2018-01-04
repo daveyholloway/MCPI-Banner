@@ -29,7 +29,7 @@ def getChar(pIn):
                "   xx   " + \
                "   xx   " + \
                "   xx   " + \
-               " xxxxxz " + \
+               " xxxxxx " + \
                "        ")
     elif pIn=="2":
         return("  xxxx  " + \
