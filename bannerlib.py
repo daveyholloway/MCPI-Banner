@@ -1,4 +1,59 @@
-# #####################################################################
+import string 
+
+#######################################################################
+#
+# importChars
+#
+# Reads the character file and loads it into a dictionary.
+#
+# USAGE:
+#
+#    importChars()
+#
+# MODIFICAION HISTORY:
+#
+# When       Who              Why
+# ========== ================ =========================================
+# 02/01/2024 Dave Hol'        Initial Version
+#
+#######################################################################
+def importChars(pCharFile):
+
+    wCharDict = {}
+    wLineNo = 1
+
+    # Open the file
+    wFile = open(pCharFile, "r+")
+
+    # Read the first line
+    wBuffer = wFile.readline()
+
+    while wBuffer:
+
+        # Is the current line a key?
+        if (wLineNo%9 == 1):
+            wCurChar = wBuffer.strip()
+            if wCurChar == "":
+                wCurChar = " "
+            # Not a key so for the first line, set the dictionary value
+            # then append the data to the value for subsequent 
+            # lines for the current key
+        elif (wLineNo%9 == 2):
+            wCharDict[wCurChar] = wBuffer.strip()
+        else:
+            wCharDict[wCurChar] = wCharDict[wCurChar] + wBuffer.strip()
+
+        # Read the next line
+        wBuffer = wFile.readline()
+        wLineNo = wLineNo + 1
+
+    # Close the file
+    wFile.close()
+
+    # Return the loaded dictionary
+    return wCharDict
+    
+#######################################################################
 #
 # getChar:
 #
@@ -16,726 +71,104 @@
 # 23/07/2015 Dave Hol'        Initial Version, numbers, alpha
 #                             (upper and lower) and a few special
 #                             characters supported.
+# 03/01/2024 Dave Hol'        Now driven by a file instead of hardcoded
+#                             values.
 #
 #
-# #####################################################################
-
-
+#######################################################################
 def getChar(pIn):
-    if pIn=="1":
-        return("   xx   " + \
-               "  xxx   " + \
-               "   xx   " + \
-               "   xx   " + \
-               "   xx   " + \
-               "   xx   " + \
-               " xxxxxx " + \
-               "        ")
-    elif pIn=="2":
-        return("  xxxx  " + \
-               " x   xx " + \
-               "     xx " + \
-               "    xx  " + \
-               "   xx   " + \
-               "  xx    " + \
-               " xxxxxx " + \
-               "        ")
-    elif pIn=="3":
-        return("  xxxx  " + \
-               " xx  xx " + \
-               "     xx " + \
-               "   xxx  " + \
-               "     xx " + \
-               " xx  xx " + \
-               "  xxxx  " + \
-               "        ")
-    elif pIn=="4":
-        return("    xx  " + \
-               "   xxx  " + \
-               "  x xx  " + \
-               " xx xx  " + \
-               " xxxxxx " + \
-               "    xx  " + \
-               "    xx  " + \
-               "        ")
-    elif pIn=="5":
-        return(" xxxxxx " + \
-               " xx     " + \
-               " xxxxx  " + \
-               "     xx " + \
-               "     xx " + \
-               " xx  xx " + \
-               "  xxxx  " + \
-               "        ")
-    elif pIn=="6":
-        return("   xxx  " + \
-               "  xx    " + \
-               " xx     " + \
-               " xxxxx  " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               "  xxxx  " + \
-               "        ")
-    elif pIn=="7":
-        return(" xxxxxx " + \
-               "     xx " + \
-               "    xx  " + \
-               "   xx   " + \
-               "  xx    " + \
-               "  xx    " + \
-               "  xx    " + \
-               "        ")
-    elif pIn=="8":
-        return("  xxxx  " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               "  xxxx  " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               "  xxxx  " + \
-               "        ")
-    elif pIn=="9":
-        return("  xxxx  " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               "   xxxx " + \
-               "     xx " + \
-               "    xx  " + \
-               "  xxx   " + \
-               "        ")
-    elif pIn=="0":
-        return("  xxxx  " + \
-               " xx  xx " + \
-               " xx xxx " + \
-               " xxxxxx " + \
-               " xxx xx " + \
-               " xx  xx " + \
-               "  xxxx  " + \
-               "        ")
-    elif pIn=="A":
-        return("  xxxx  " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               " xxxxxx " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               "        ")
-    elif pIn=="B":
-        return(" xxxxx  " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               " xxxxx  " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               " xxxxx  " + \
-               "        ")
-    elif pIn=="C":
-        return("  xxxx  " + \
-               " xx  xx " + \
-               " xx     " + \
-               " xx     " + \
-               " xx     " + \
-               " xx  xx " + \
-               "  xxxx  " + \
-               "        ")
-    elif pIn=="D":
-        return(" xxxxx  " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               " xxxxx  " + \
-               "        ")
-    elif pIn=="E":
-        return(" xxxxxx " + \
-               " xx     " + \
-               " xx     " + \
-               " xxxxx  " + \
-               " xx     " + \
-               " xx     " + \
-               " xxxxxx " + \
-               "        ")
-    elif pIn=="F":
-        return(" xxxxxx " + \
-               " xx     " + \
-               " xx     " + \
-               " xxxxx  " + \
-               " xx     " + \
-               " xx     " + \
-               " xx     " + \
-               "        ")
-    elif pIn=="G":
-        return("  xxxx  " + \
-               " xx  xx " + \
-               " xx     " + \
-               " xx xxx " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               "  xxxx  " + \
-               "        ")
-    elif pIn=="H":
-        return(" xx  xx " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               " xxxxxx " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               "        ")
-    elif pIn=="I":
-        return(" xxxxxx " + \
-               "   xx   " + \
-               "   xx   " + \
-               "   xx   " + \
-               "   xx   " + \
-               "   xx   " + \
-               " xxxxxx " + \
-               "        ")
-    elif pIn=="J":
-        return("  xxxxx " + \
-               "    xx  " + \
-               "    xx  " + \
-               "    xx  " + \
-               "    xx  " + \
-               " xx xx  " + \
-               "  xxx   " + \
-               "        ")
-    elif pIn=="K":
-        return(" xx  xx " + \
-               " xx xx  " + \
-               " xxxx   " + \
-               " xxx    " + \
-               " xxxx   " + \
-               " xx xx  " + \
-               " xx  xx " + \
-               "        ")
-    elif pIn=="L":
-        return(" xx     " + \
-               " xx     " + \
-               " xx     " + \
-               " xx     " + \
-               " xx     " + \
-               " xx     " + \
-               " xxxxxx " + \
-               "        ")
-    elif pIn=="M":
-        return(" xx   xx" + \
-               " xxx xxx" + \
-               " xxxxxxx" + \
-               " xx x xx" + \
-               " xx x xx" + \
-               " xx   xx" + \
-               " xx   xx" + \
-               "        ")
-    elif pIn=="N":
-        return(" xx  xx " + \
-               " xx  xx " + \
-               " xxx xx " + \
-               " xxxxxx " + \
-               " xx xxx " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               "        ")
-    elif pIn=="O":
-        return("  xxxx  " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               "  xxxx  " + \
-               "        ")
-    elif pIn=="P":
-        return(" xxxxx  " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               " xxxxx  " + \
-               " xx     " + \
-               " xx     " + \
-               " xx     " + \
-               "        ")
-    elif pIn=="Q":
-        return("  xxxx  " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               " xx x x " + \
-               " xx xx  " + \
-               "  xx xx " + \
-               "        ")
-    elif pIn=="R":
-        return(" xxxxx  " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               " xxxxx  " + \
-               " xx xx  " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               "        ")
-    elif pIn=="S":
-        return("  xxxx  " + \
-               " xx  xx " + \
-               " xx     " + \
-               "  xxxx  " + \
-               "     xx " + \
-               " xx  xx " + \
-               "  xxxx  " + \
-               "        ")
-    elif pIn=="T":
-        return(" xxxxxx " + \
-               "   xx   " + \
-               "   xx   " + \
-               "   xx   " + \
-               "   xx   " + \
-               "   xx   " + \
-               "   xx   " + \
-               "        ")
-    elif pIn=="U":
-        return(" xx  xx " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               "  xxxx  " + \
-               "        ")
-    elif pIn=="V":
-        return(" xx  xx " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               "  xxxx  " + \
-               "   xx   " + \
-               "        ")
-    elif pIn=="W":
-        return(" xx   xx" + \
-               " xx   xx" + \
-               " xx x xx" + \
-               " xx x xx" + \
-               " xxxxxxx" + \
-               " xxx xxx" + \
-               " xx   xx" + \
-               "        ")
-    elif pIn=="X":
-        return(" xx  xx " + \
-               " xx  xx " + \
-               "  xxxx  " + \
-               "   xx   " + \
-               "  xxxx  " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               "        ")
-    elif pIn=="Y":
-        return(" xx  xx " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               "  xxxx  " + \
-               "   xx   " + \
-               "   xx   " + \
-               "   xx   " + \
-               "        ")
-    elif pIn=="Z":
-        return(" xxxxxx " + \
-               "     xx " + \
-               "    xx  " + \
-               "   xx   " + \
-               "  xx    " + \
-               " xx     " + \
-               " xxxxxx " + \
-               "        ")
-    elif pIn=="a":
-        return("        " + \
-               "        " + \
-               "  xxxx  " + \
-               "     xx " + \
-               "  xxxxx " + \
-               " xx  xx " + \
-               "  xxxxx " + \
-               "        ")
-    elif pIn=="b":
-        return(" xx     " + \
-               " xx     " + \
-               " xxxxx  " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               " xxxxx  " + \
-               "        ")
-    elif pIn=="c":
-        return("        " + \
-               "        " + \
-               "  xxxx  " + \
-               " xx  xx " + \
-               " xx     " + \
-               " xx  xx " + \
-               "  xxxx  " + \
-               "        ")
-    elif pIn=="d":
-        return("     xx " + \
-               "     xx " + \
-               "     xx " + \
-               "  xxxxx " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               "  xxxxx " + \
-               "        ")
-    elif pIn=="e":
-        return("        " + \
-               "        " + \
-               "  xxxx  " + \
-               " xx  xx " + \
-               " xxxxxx " + \
-               " xx     " + \
-               "  xxxx  " + \
-               "        ")
-    elif pIn=="f":
-        return("   xxx  " + \
-               "  xx    " + \
-               "  xx    " + \
-               " xxxxx  " + \
-               "  xx    " + \
-               "  xx    " + \
-               "  xx    " + \
-               "        ")
-    elif pIn=="g":
-        return("        " + \
-               "        " + \
-               "  xxxx  " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               "  xxxxx " + \
-               "     xx " + \
-               "  xxxx  ")
-    elif pIn=="h":
-        return(" xx     " + \
-               " xx     " + \
-               " xxxxx  " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               "        ")
-    elif pIn=="i":
-        return("   xx   " + \
-               "        " + \
-               "  xxx   " + \
-               "   xx   " + \
-               "   xx   " + \
-               "   xx   " + \
-               "  xxxx  " + \
-               "        ")
-    elif pIn=="j":
-        return("    xx  " + \
-               "        " + \
-               "   xxx  " + \
-               "    xx  " + \
-               "    xx  " + \
-               "    xx  " + \
-               "    xx  " + \
-               "  xxx   ")
-    elif pIn=="k":
-        return(" xx     " + \
-               " xx  xx " + \
-               " xx xx  " + \
-               " xx x   " + \
-               " xxxx   " + \
-               " xx xx  " + \
-               " xx  xx " + \
-               "        ")
-    elif pIn=="l":
-        return("  xxx   " + \
-               "   xx   " + \
-               "   xx   " + \
-               "   xx   " + \
-               "   xx   " + \
-               "   xx   " + \
-               "  xxxx  " + \
-               "        ")
-    elif pIn=="m":
-        return("        " + \
-               "        " + \
-               "  xx xx " + \
-               " xxxxxxx" + \
-               " xx x xx" + \
-               " xx x xx" + \
-               " xx   xx" + \
-               "        ")
-    elif pIn=="n":
-        return("        " + \
-               "        " + \
-               " xxxxx  " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               "        ")
-    elif pIn=="o":
-        return("        " + \
-               "        " + \
-               "  xxxx  " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               "  xxxx  " + \
-               "        ")
-    elif pIn=="p":
-        return("        " + \
-               "        " + \
-               " xxxxx  " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               " xxxxx  " + \
-               " xx     " + \
-               " xx     ")
-    elif pIn=="q":
-        return("        " + \
-               "        " + \
-               "  xxxxx " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               "  xxxxx " + \
-               "     xx " + \
-               "     xxx")
-    elif pIn=="r":
-        return("        " + \
-               "        " + \
-               " xx xx  " + \
-               " xxx xx " + \
-               " xx     " + \
-               " xx     " + \
-               " xx     " + \
-               "        ")
-    elif pIn=="s":
-        return("        " + \
-               "        " + \
-               "  xxxxx " + \
-               " xx     " + \
-               "  xxxx  " + \
-               "     xx " + \
-               " xxxxx  " + \
-               "        ")
-    elif pIn=="t":
-        return("   xx   " + \
-               "   xx   " + \
-               "  xxxxx " + \
-               "   xx   " + \
-               "   xx   " + \
-               "   xx   " + \
-               "    xxx " + \
-               "        ")
-    elif pIn=="u":
-        return("        " + \
-               "        " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               "  xxxxx " + \
-               "        ")
-    elif pIn=="v":
-        return("        " + \
-               "        " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               "  xxxx  " + \
-               "   xx   " + \
-               "        ")
-    elif pIn=="w":
-        return("        " + \
-               "        " + \
-               " xx   xx" + \
-               " xx x xx" + \
-               " xx x xx" + \
-               " xxxxxxx" + \
-               "  xx xx " + \
-               "        ")
-    elif pIn=="x":
-        return("        " + \
-               "        " + \
-               " xx  xx " + \
-               "  xxxx  " + \
-               "   xx   " + \
-               "  xxxx  " + \
-               " xx  xx " + \
-               "        ")
-    elif pIn=="y":
-        return("        " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               " xx  xx " + \
-               "  xxxxx " + \
-               "     xx " + \
-               "     xx " + \
-               "  xxxx  ")
-    elif pIn=="z":
-        return("        " + \
-               "        " + \
-               " xxxxxx " + \
-               "    xx  " + \
-               "   xx   " + \
-               "  xx    " + \
-               " xxxxxx " + \
-               "        ")
-    elif pIn==" ":
-        return("        " + \
-               "        " + \
-               "        " + \
-               "        " + \
-               "        " + \
-               "        " + \
-               "        " + \
-               "        ")
-    elif pIn=="!":
-        return("   xx   " + \
-               "   xx   " + \
-               "   xx   " + \
-               "   xx   " + \
-               "   xx   " + \
-               "        " + \
-               "   xx   " + \
-               "        ")
-    elif pIn==".":
-        return("        " + \
-               "        " + \
-               "        " + \
-               "        " + \
-               "        " + \
-               "        " + \
-               "   xx   " + \
-               "   xx   ")
-    elif pIn==",":
-        return("        " + \
-               "        " + \
-               "        " + \
-               "        " + \
-               "        " + \
-               "   xx   " + \
-               "   xx   " + \
-               " xx     ")
-    elif pIn=="(":
-        return("     xx " + \
-               "    xx  " + \
-               "   xx   " + \
-               "   xx   " + \
-               "   xx   " + \
-               "    xx  " + \
-               "     xx " + \
-               "        ")
-    elif pIn==")":
-        return(" xx     " + \
-               "  xx    " + \
-               "   xx   " + \
-               "   xx   " + \
-               "   xx   " + \
-               "  xx    " + \
-               " xx     " + \
-               "        ")
-    elif pIn=="?":
-        return("  xxxx  " + \
-               " xx  xx " + \
-               "    xx  " + \
-               "   xx   " + \
-               "   xx   " + \
-               "        " + \
-               "   xx   " + \
-               "        ")
-    elif pIn=="@":
-        return("  xxxx  " + \
-               " xx  xx " + \
-               " xx xxx " + \
-               " xx x x " + \
-               " xx xxx " + \
-               " xx     " + \
-               "  xxxx  " + \
-               "        ")
-    elif pIn=="'":
-        return("    xx  " + \
-               "    xx  " + \
-               "   x    " + \
-               "        " + \
-               "        " + \
-               "        " + \
-               "        " + \
-               "        ")
-    else:
-        return("        " + \
-               " xxxxxx " + \
-               " x    x " + \
-               " x    x " + \
-               " x    x " + \
-               " x    x " + \
-               " xxxxxx " + \
-               "        ")
 
-# #####################################################################
+    # Define a default character if we don't have a matching key
+    wDefault = "..####.." + \
+               ".##..##." + \
+               "....##.." + \
+               "...##..." + \
+               "...##..." + \
+               "........" + \
+               "...##..." + \
+               "........"
+    # Load the character definitions from the local text file into
+    # a dictionary
+    wDictionary = importChars("masterCharsWorking.txt")
+
+    # Check that the character requred exists
+    if (pIn in wDictionary):
+        return(wDictionary[pIn])
+    else:
+        # Return a default character if we don't have a corresponding
+        # dictionary entry
+        return(wDefault)
+
+#######################################################################
 #
-# getSpecialChar:
+# chop:
 #
-# This function returns a string that represents an 8 * 8
-# representation of a special character (e.g. a smiley). To use it
-# pass in the string that corresponds to the character you want.
-#
-# SUPPORTED CHARACTERS:
-# (Check the code to be sure!)
-#
-#    smiley, sad, block
+# Chop a single word up based on the width specified, return a list
 #
 # USAGE:
 #
-#    myValue = getChar("smiley")
+#    myValue = chop("bananas",5)
 #
 # MODIFICAION HISTORY:
 #
 # When       Who              Why
 # ========== ================ =========================================
-# 23/07/2015 Dave Hol'        Initial Version, just a few characters at
-#                             the moment.
+# 03/01/2024 Dave Hol'        Initial Version
 #
-#
-# #####################################################################
-def getSpecialChar(pIn):
-    if pIn=="smiley":
-        return("  xxxx  " + \
-               " x    x " + \
-               "x x  x x" + \
-               "x      x" + \
-               "x x  x x" + \
-               "x  xx  x" + \
-               " x    x " + \
-               "  xxxx  ")
-    if pIn=="sad":
-        return("  xxxx  " + \
-               " x    x " + \
-               "x x  x x" + \
-               "x      x" + \
-               "x  xx  x" + \
-               "x x  x x" + \
-               " x    x " + \
-               "  xxxx  ")
-    elif pIn=="block":
-        return("xxxxxxxx" + \
-               "xxxxxxxx" + \
-               "xxxxxxxx" + \
-               "xxxxxxxx" + \
-               "xxxxxxxx" + \
-               "xxxxxxxx" + \
-               "xxxxxxxx" + \
-               "xxxxxxxx")
-    else:
-        return("        " + \
-               " xxxxxx " + \
-               " x    x " + \
-               " x    x " + \
-               " x    x " + \
-               " x    x " + \
-               " xxxxxx " + \
-               "        ")
+#######################################################################
+def chop(pIn, pWidth):
 
-# #####################################################################
+    wResult=[]
+
+    # First, if the input is already less than the width then
+    # just return a single item
+    if len(pIn) <= pWidth:
+        return([pIn])
+
+    else:
+        # The string's too long so chop it into bits using slicing
+        for i in range(0, (len(pIn)//pWidth)+1):
+            #print(i*pWidth,":",((i+1)*pWidth)-1)
+            wResult.append(pIn[(i*pWidth):(i+1)*pWidth])
+        return(wResult)
+
+#######################################################################
+#
+# getWordList:
+#
+# Start with a string of words and chop them up into individual words,
+# where a word is longer then the required width, chop it up too.
+# Return a list object.
+#
+# USAGE:
+#
+#    myValue = getWordList("I exude the essence of bananas",5)
+#
+# MODIFICAION HISTORY:
+#
+# When       Who              Why
+# ========== ================ =========================================
+# 03/01/2024 Dave Hol'        Initial Version
+#
+#######################################################################
+def getWordList(pIn, pWidth):
+
+    wResult=[]
+
+    # First, just split into words (space delimited)
+    wTempList = pIn.split()
+
+    # Now look at each word in the list, if it's longer then the
+    # required width, split that too.
+    for wWord in wTempList:
+        if len(wWord) <= pWidth:
+            wResult.append(wWord)
+        else:
+            wResult = wResult + chop(wWord,pWidth)
+
+    return(wResult)
+
+#######################################################################
 #
 # wrap:
 #
@@ -757,14 +190,17 @@ def getSpecialChar(pIn):
 # 04/01/2018 Dave Hol'        Fixed the bug where a single line causes
 #                             a crash! Bug reported above, still not
 #                             fixed!
-# #####################################################################
+# 03/01/2024 Dave Hol'        Now splits the initial string up using
+#                             the getWordList function which should fix
+#                             the long single word bug above.
+#######################################################################
 def wrap(pMessage, pLineWidth):
 
     # Define a list of lines to be passed back
     wLines=[]
 
     # First split the message into a list of words
-    wWordList = pMessage.split()
+    wWordList = getWordList(pMessage, pLineWidth)
 
     # Clear a line
     wLine = ""
@@ -798,7 +234,7 @@ def wrap(pMessage, pLineWidth):
     # Return the result
     return(wLines)
 
-# #####################################################################
+#######################################################################
 #
 # banner:
 #
@@ -815,8 +251,11 @@ def wrap(pMessage, pLineWidth):
 # ========== ================ =========================================
 # 23/07/2015 Dave Hol'        Initial Version, wouldn't it be great
 #                             if it worked in Minecraft!!
-#
-# #####################################################################
+# 03/01/2024 Dave Hol'        Uses replace to convert the periods and
+#                             hashes (pound symbols) to space and block
+#                             characters in the output. Possibly font
+#                             dependant, I'm using Lucidia Console.
+#######################################################################
 def banner(pMessage, pWrap):
 
     # Convert the message into lines (wrap it!)
@@ -846,13 +285,12 @@ def banner(pMessage, pWrap):
                 wPrintLine = wPrintLine + wWordList[j][i*8:(i*8)+7]
 
             # Print it
-            print(wPrintLine)
-
-
-
+            print(wPrintLine.replace("."," ").replace("#","\\u2588".encode().decode('raw_unicode_escape')))
 
 # Start of code #######################################################
 
 
 # The message to print
-# banner("There once was a young man called Seamus, who's ekit sessions were famous!",8)
+banner("The boy stood on the burning deck his feet were all a quiver, he had a cough, his leg fell off and floated down the river!",12)
+#banner("£$%^&*!?<>@{}][",8)
+#banner("A",8)
