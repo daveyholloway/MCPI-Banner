@@ -8,3 +8,4 @@ The bannerlib.py file contains the pure banner code while mcbanner.py has the mi
 ## To Do
 The following features/bug fixes are currently outstanding:
 * The ability to specify the direction that the banner prints in minecraft
+* Rewrite as object orientated - good exuse to fork the code!
