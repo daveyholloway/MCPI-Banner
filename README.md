@@ -7,5 +7,4 @@ The bannerlib.py file contains the pure banner code while mcbanner.py has the mi
 
 ## To Do
 The following features/bug fixes are currently outstanding:
-* Bug in the bannerlib code that causes a crash for single line messages.
 * The ability to specify the direction that the banner prints in minecraft
