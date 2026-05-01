@@ -3,6 +3,6 @@ import bannerlib as bn
 
 
 # Think of a suitable message
-wMessage = "Hello!"
+wMessage = "Debug"
 
 bn.banner(wMessage,9)
