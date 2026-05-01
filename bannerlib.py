@@ -292,8 +292,10 @@ def banner(pMessage, pWrap):
 
 # Start of code #######################################################
 
-
-# The message to print
-banner("The boy stood on the burning deck his feet were all a quiver, he had a cough, his leg fell off and floated down the river!",12)
-#banner("£$%^&*!?<>@{}][",8)
-#banner("A",8)
+# Test code
+if __name__ == "__main__":
+    print("Running tests…")
+    # The message to print
+    banner("The boy stood on the burning deck his feet were all a quiver, he had a cough, his leg fell off and floated down the river!",12)
+    #banner("£$%^&*!?<>@{}][",8)
+    #banner("A",8)
